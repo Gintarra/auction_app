@@ -38,8 +38,8 @@ const CreateAuction = () => {
     }
 
     return (
-        <div className='d-flex column align-center'>
-            <input className='input m-custom' type="text" placeholder='Image URL' ref={inp.url} />
+        <div className='d-flex column align-center reg-log-container m-custom'>
+            <input className='input m-5' type="text" placeholder='Image URL' ref={inp.url} />
             <input className='input m-5' type="text" placeholder='Title' ref={inp.title} />
             <input className='input m-5' type="number" placeholder='Start price' ref={inp.startPrice} />
             <div>Duration:</div>

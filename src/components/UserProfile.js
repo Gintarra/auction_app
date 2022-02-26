@@ -35,7 +35,7 @@ const UserProfile = () => {
             {getUser && userData &&
                 <div className='d-flex justify-center column align-center m-custom'>
                     <img className='user-image' src={userData.image} alt="" />
-                    <h4>Money: {userData.money}</h4>
+                    <h4>Money: {userData.money}$</h4>
                     <h4>My auctions:</h4>
                     {getAll.length === 0 && <div>You don't have auctions</div>}
                     <div className="d-flex wrap justify-center ">
