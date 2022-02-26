@@ -1,38 +1,189 @@
-.App {
+.toolbar {
+  background-color: rgb(121, 206, 228);
+  padding: 15px;
+  width: 100%;
+}
+.link {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: bold;
+}
+.link:hover {
+  transform: scale(1.1);
+}
+.btn {
+  margin: 10px;
+  padding: 6px;
+  width: 150px;
+  border: none;
+  font-weight: bold;
+  background-color: rgb(123, 202, 226);
+}
+.btn:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.reg-log-container{
+  width: 280px;
+  padding: 25px 15px;
+  align-self: flex-end;
+  background-color: rgb(255, 255, 255);
+  box-shadow: -1px 0px 16px 2px rgba(0,0,0,0.64);
+}
+.input {
+  width: 250px;
+  padding: 3px;
+}
+.inputEndSelect{
+  width: 260px;
+  padding: 3px;
+}
+.user-stats {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: bold;
+}
+.user-image{
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+}
+.post {
+  padding: 10px;
+  margin: 10px;
+  width: 900px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: -1px 0px 16px 2px rgba(0,0,0,0.64);
+}
+.post:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.post img {
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+}
+.post-inactive {
+  padding: 10px;
+  margin: 10px;
+  width: 900px;
+  opacity: 0.6;
+  background-color: rgb(255, 255, 255);
+  box-shadow: -1px 0px 16px 2px rgba(0,0,0,0.64);
+}
+
+.post-inactive img {
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+}
+.post2 {
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: -1px 0px 16px 2px rgba(0,0,0,0.64);
+}
+.post2 img {
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+}
+.post2-inactive {
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  opacity: 0.6;
+  background-color: rgb(255, 255, 255);
+  box-shadow: -1px 0px 16px 2px rgba(0,0,0,0.64);
+}
+
+.post2-inactive img {
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+}
+.card:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.bid-input {
+  width: 150px;
+  padding: 3px;
+  height: 30px;
+  margin: 10px;
+}
+.bid-btn {
+  margin: 10px;
+  padding: 5px;
+  width: 100px;
+  height: 40px;
+  border: none;
+  font-weight: bold;
+  background-color: rgb(123, 202, 226);
+}
+.bid-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.bid-container {
+  margin: 10px;
+  padding: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: -1px 0px 16px 2px rgba(0,0,0,0.64);
+}
+.bid-container img {
+  height: 80px;
+  width: 80px;
+}
+.user-toolbar{
+  font-style: italic;
+}
+/* Flexes classes */
+.d-flex {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+.align-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.space-ev {
+  justify-content: space-evenly;
+}
+.space-btw {
+  justify-content: space-between;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.align {
+  align-self: end;
+}
+.grow1{
+  flex: 1;
+}
+.grow5{
+  flex: 4;
+}
+.column-reverse {
+  flex-direction: column-reverse;
+}
+/* margins, paddings */
+.m-custom {
+  margin: 60px 5px 5px 5px;
+}
+.m-5 {
+margin: 5px;
+}
+.text-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
