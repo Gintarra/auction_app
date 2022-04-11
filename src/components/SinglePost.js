@@ -41,32 +41,20 @@ const SinglePost = ({ item, one, setAll }) => {
                     setD(daysDifference)
                     setH(hoursDifference)
                     setM(minutesDifference)
-                    setS(secondsDifference)
-                    //  console.log(end, "end")
-                    //console.log(Math.floor(Date.now()/1000)*1000 )
-                    //console.log(difference, "skirtumas")
-                    // console.log(secondsDifference, "min")
-                    // if(difference === 0 && active){
-        
+                    setS(secondsDifference)        
                      if(daysDifference === 0 && minutesDifference===0 && hoursDifference === 0 && secondsDifference === 0 && active){
-                             //  console.log(difference, "skirtumas")
                             clearInterval(int)
                             const obj = {
                                 id,
                                 active
                             }      
-                            console.log('atejo i nulio zona', id);
                             http.post(obj, "bidEnd").then(res => {
-                                console.log('atejo i bida')
                                 if (res.success) {
-                                    console.log(res.data);
                                     setAll(res.data)
-                                    console.log(res.data2);
                                     setUser(res.data2)
                                 }
                             })
                             clearInterval(int)
-                            console.log( int)  
                      }
             }   
         }
@@ -104,85 +92,3 @@ const SinglePost = ({ item, one, setAll }) => {
 
 export default SinglePost;
 
-
-
-// function timeLeft(end) {
-//     let int;
-//     let time = 0
-//     if (end - Date.now() < 0) {
-//         clearInterval(int)
-//         setTime("end")
-//         return;
-//     }
-//     int = setInterval(() => {
-//         setTime(end - Date.now())
-//     }, 1000)
-//   // return getTime
-// }
-
-
-// console.log('difference = ' +
-// daysDifference + ' day/s ' +
-// hoursDifference + ' hour/s ' +
-// minutesDifference + ' minute/s ' +
-// secondsDifference + ' second/s ');
-
-
-// function timeLeft(end, id, active) {
-//     // clearInterval(int)
-//     let difference = 0
-//     let daysDifference = 0
-//     let hoursDifference = 0
-//     let minutesDifference = 0
-//     let secondsDifference = 0
-//     if (end - Date.now() <= 0) {
-//         // setD(0)
-//         // setH(0)
-//         // setM(0)
-//         // setS(0)
-//         // console.log(getS, "sekundes if", end-Date.now(), "data atimta")
-//         clearInterval(int)
-//     } else {
-//         int = setInterval(() => {
-//             difference = end - Date.now()
-//          //   console.log(difference, "skirtumas")
-//             if (difference < 0) {
-//                 console.log(difference, "skirtumas")
-//                 // console.log(end / 1000, "end")
-//                 // console.log('o cia')
-//                 // console.log(Math.round(Date.now() / 1000), "now")
-               
-//                     const obj = {
-//                         id,
-//                         active
-//                     }
-//                     http.post(obj, "bidEnd").then(res => {
-//                         //    console.log('atejo i bida')
-//                         if (res.success) {
-//                             console.log(res.data);
-//                             console.log(res.data2);
-//                           //  return
-//                         }
-//                     })
-//                 int = clearInterval(int)
-//                // return
-//             }
-//             daysDifference = Math.floor(difference / 1000 / 60 / 60 / 24);
-//             difference -= daysDifference * 1000 * 60 * 60 * 24
-
-//             hoursDifference = Math.floor(difference / 1000 / 60 / 60);
-//             difference -= hoursDifference * 1000 * 60 * 60
-
-//             minutesDifference = Math.floor(difference / 1000 / 60);
-//             difference -= minutesDifference * 1000 * 60
-
-//             secondsDifference = Math.floor(difference / 1000);
-
-//             setD(daysDifference)
-//             setH(hoursDifference)
-//             setM(minutesDifference)
-//             setS(secondsDifference)
-
-//         }, 1000)
-//     }
-// }

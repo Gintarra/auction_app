@@ -21,10 +21,8 @@ const CreateAuction = () => {
             startPrice: Number(inp.startPrice.current.value),
             endTime: Math.floor((Date.now() + Number(inp.endTime.current.value))/1000)
         }
-        //  console.log(new Date (post.endTime).toLocaleString('lt-LT'))
         http.post(post, "create").then(res => {
             if (res.success) {
-                console.log(res.data)
                 inp.url.current.value = ""
                 inp.title.current.value = ""
                 inp.startPrice.current.value = ""
