@@ -3,7 +3,7 @@ const router = express.Router()
 
 
 const { register, login, userProfile, create,
-    allAuctions, auction, makeBid, watch, bidEnd, logout }
+    allAuctions, auction, makeBid, bidEnd, logout }
     = require('../controllers/main')
 
 const {validateUser, validatePost} = require('../middleware/main')
@@ -16,7 +16,7 @@ router.get('/all-auctions', allAuctions)
 router.get('/auction/:id', auction)
 router.post('/bid', makeBid)
 router.post('/bidEnd', bidEnd)
-router.get('/watch', watch)
+
 
 
 router.get('/logout', logout)

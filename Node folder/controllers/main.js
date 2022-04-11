@@ -147,41 +147,6 @@ module.exports = {
         }
         res.send({ success: false, error: "nera aukcionu arba per mazas bidas" })
     },
-    watch: async (req, res) => {
-        console.log("ateina?")
-        const allAuctions = await auctionDb.find({ active: true })
-        allAuctions.map(x => schedule.scheduleJob({ start: Math.round(Date.now() / 1000), end: x.endTime, rule: '*/1 * * * * *' }, async function () {
-            // console.log(new Date (Date.now()).toLocaleString('lt-LT'), "dabartine")
-            // console.log(new Date (x.endTime).toLocaleString('lt-LT'), "pabaigos")
-            console.log((Math.round(Date.now() / 1000)), "date now")
-            console.log(x.endTime, "date end")
-            if (Math.round(Date.now() / 1000) >= x.endTime) {
-                let xMap = x;
-                console.log(x.endTime)
-                let aucUpdate = await auctionDb.findOneAndUpdate({ _id: xMap._id },
-                    { $set: { active: false } }, { new: true })
-
-                console.log(aucUpdate, "atnaujintas aukcionas")
-                let owner = await userDb.findOneAndUpdate({ username: aucUpdate.ownerName }, { $inc: { money: aucUpdate.price } }, { new: true })
-                console.log(owner, "savininkas")
-                let winUser = await userDb.findOneAndUpdate({ username: aucUpdate.bids[aucUpdate.bids.length - 1].username }, { $inc: { money: -aucUpdate.price } })
-                winUser = await userDb.findOneAndUpdate({ username: aucUpdate.ownerName }, { $inc: { reservedMoney: -aucUpdate.price } })
-                let loggedUser = await userDb.findOne({ username: req.session.user })
-
-                const allAuctionsNew = await auctionDb.find({})
-                return res.send({ success: true, data: allAuctionsNew, data2: loggedUser })
-            }
-
-        }))
-
-        // res.send({ success: false })
-
-        // schedule.scheduleJob({ start: Date.now(), end: new Date(Date.now() + 5000), rule: '*/1 * * * * *' }, function () {
-        //  console.log('Time for tea!');
-        // console.log(job, "job")
-        //     });
-        // console.log(job, "job")
-    },
     bidEnd: async (req, res) => {
         const { id, active } = req.body
         console.log('bid ende', active, id)
